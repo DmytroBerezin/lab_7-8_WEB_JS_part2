@@ -2,12 +2,12 @@ const list = document.getElementById('todo-list')
 const itemCountSpan = document.getElementById('item-count')
 const uncheckedCountSpan = document.getElementById('unchecked-count')
 
-// Завдання 1. Посилання на вашу базу даних Firebase (замініть на своє посилання)
+// Завдання 1. Посилання на  базу даних Firebase
 const FIREBASE_URL = 'https://todo-list-de703-default-rtdb.firebaseio.com/todos';
 
 let todos = [];
 
-// Завдання 3. Читання з БД (Метод GET) та Завдання 6 (Умовний рендеринг завантаження/помилки)
+// Завдання 3. Читання з БД та Завдання 6
 function fetchTodos() {
   list.innerHTML = '<li class="list-group-item text-center text-muted">Завантаження даних з бази даних...</li>';
 
@@ -33,7 +33,7 @@ function fetchTodos() {
     });
 }
 
-// Завдання 2. Функція addTodo (Метод POST)
+// Завдання 2. Функція addTodo 
 function addTodo(text) {
   const todoData = {
     text: text,
@@ -94,7 +94,7 @@ function updateCounter() {
   uncheckedCountSpan.textContent = unchecked;
 }
 
-// Завдання 4. Видалення даних (Метод DELETE)
+// Завдання 4. Видалення даних 
 function deleteTodo(id) {
   fetch(`${FIREBASE_URL}/${id}.json`, {
     method: 'DELETE'
@@ -108,7 +108,7 @@ function deleteTodo(id) {
     .catch(error => alert(error.message));
 }
 
-// Завдання 5. Оновлення даних (Метод PATCH)
+// Завдання 5. Оновлення даних 
 function checkTodo(id) {
   const todo = todos.find(t => t.id === id);
   if (!todo) return;
